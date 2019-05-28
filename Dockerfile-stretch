@@ -1,0 +1,12 @@
+FROM golang:1.12-stretch as builder
+RUN apt-get update && apt-get install git -y
+ADD . /go
+RUN go get -d -v
+RUN GOOS=linux go build -a -o rt-app .
+
+FROM debian:stretch-slim 
+COPY --from=builder /go/rt-app /rt-app
+RUN useradd -u 10001 appuser
+USER appuser
+EXPOSE 8080
+CMD ["/rt-app"]

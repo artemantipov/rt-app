@@ -3,6 +3,9 @@ Some basic REST app with deploy to GCP(GAE)
 
 # System Diagram
 
+* Blue lines - current solution 
+* Grat lines - possible alternative solutions supported by app
+
 ![alt text](https://github.com/artemantipov/rt-app/blob/master/diagram.png)
 
 # Deploy to GCP
@@ -22,3 +25,11 @@ Run command from project root dir `./gcp.sh (init|deploy) version`
 * deploy - Test and deploy specified version of app to current GCP infrastructure (CloudSQL and GAE)
 * version - Specified app version for deploy
 
+### Metrics
+Available at *https://appname/metrics*
+
+### Supported DB
+* PostgreSQL
+* MySQL
+* CloudSQL
+* Sqlite3 (with small changes)

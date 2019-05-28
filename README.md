@@ -26,7 +26,7 @@ Run command from project root dir `./gcp.sh (init|deploy) version`
 * version - Specified app version for deploy
 
 ### Metrics
-Available at *https://appname/metrics*
+Available at *URL/metrics*
 
 ### Supported DB
 * PostgreSQL

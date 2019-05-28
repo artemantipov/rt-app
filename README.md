@@ -1,5 +1,5 @@
 # rt-app
-Some basic test app with deploy to GCP
+Some basic REST app with deploy to GCP(GAE)
 
 # System Diagram
 
@@ -8,13 +8,17 @@ Some basic test app with deploy to GCP
 # Deploy to GCP
 
 ## Requirements
-* gcloud sdk
+* gcloud sdk 
 * golang 1.11+
 
-## Deploy command format
-Run from project root dir:
-* ./gcp.sh (init|deploy) version
+## Preparations
+Create file and fill with ENV variables *./deploy/.env* from *./deploy/tpl.env*
 
-init - Creation of CloudSQL instance, test and deploy app with specified version to Google App Engine (GAE)
-deploy - Test and deploy specified version of app to current GCP infrastructure (CloudSQL and GAE)
+## Deploy command format
+Run command from project root dir `./gcp.sh (init|deploy) version`
+
+### Parameters
+* init - Creation of CloudSQL instance, test and deploy app with specified version to Google App Engine (GAE)
+* deploy - Test and deploy specified version of app to current GCP infrastructure (CloudSQL and GAE)
+* version - Specified app version for deploy
 

@@ -18,7 +18,7 @@ import (
 
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
-	// _ "github.com/jinzhu/gorm/dialects/sqlite"
+	// _ "github.com/jinzhu/gorm/dialects/sqlite" # gcc required, but disabled in GAE builder
 )
 
 // User - main struct for Birthdays

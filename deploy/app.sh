@@ -11,14 +11,14 @@ GAE_PROJECT_ID=$(gcloud app describe | grep id: | awk '{print $2}')
 case $ACTION in
     "init")
         gcloud app create --region="$GCP_REGION"
-        gcloud app deploy -q -v $VERSION --promote
+        gcloud app deploy -q -v $VERSION --promote || exit 1
         echo "Use URL below for check"
         APP_URL=$(gcloud app browse --no-launch-browser -s default 2>&1)
         echo "$APP_URL"
         ;;
     "deploy")
         ./deploy/appcfg.sh $GAE_PROJECT_ID TEST # TEST arg generate congih for testdb
-        gcloud app deploy -q -v $VERSION --no-promote
+        gcloud app deploy -q -v $VERSION --no-promote || exit 1
         echo "Use URL below for check"
         APP_URL=$(gcloud app browse --no-launch-browser -s default -v $VERSION 2>&1)
         echo "$APP_URL"
@@ -27,7 +27,7 @@ case $ACTION in
         echo "Tests Passed!"
         echo "Deploying version $VERSION..."
         ./deploy/appcfg.sh $GAE_PROJECT_ID
-        gcloud app deploy -q -v $VERSION --promote
+        gcloud app deploy -q -v $VERSION --promote || exit 1
         echo "App deployed! Use URL below for check"
         APP_URL=$(gcloud app browse --no-launch-browser -s default 2>&1)
         echo "$APP_URL"

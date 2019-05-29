@@ -16,7 +16,7 @@ Some basic REST app with deploy to GCP(GAE)
 
 ## Preparations
 * Create file and fill with ENV variables *./deploy/.env* from *./deploy/tpl.env*
-* Cause of specific behavior of Google App Engine builder you need to copy all files from dir *$GOPATH/src/github.com/labstack/echo* to *$GOPATH/src/github.com/labstack/echo/v4* and also install dependencies with go modules disabled after by command *GO111MODULE=off go get -d ./...* 
+* Cause of specific behavior of Google App Engine builder you need to copy all files from dir *$GOPATH/src/github.com/labstack/echo* to *$GOPATH/src/github.com/labstack/echo/v4* and also install dependencies with go modules disabled after by command `GO111MODULE=off go get -d ./...` 
 
 
 ## Deploy command format

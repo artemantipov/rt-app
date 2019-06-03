@@ -20,12 +20,13 @@ Some basic REST app with deploy to GCP(GAE)
 
 
 ## Deploy command format
-Run command from project root dir `./gcp.sh (init|deploy) version`
+Run command from project root dir `./gcp.sh (init|deploy|rollback) version`
 
 ### Parameters
 * init - Creation of CloudSQL instance, test and deploy app with specified version to Google App Engine (GAE)
 * deploy - Test and deploy specified version of app to current GCP infrastructure (CloudSQL and GAE)
-* version - Specified app version for deploy
+* rollback - rollback app to sprecific or previous version
+* version - Specified app version for deploy or rollback
 
 ### Metrics
 Available at *URL/metrics*

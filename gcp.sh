@@ -3,6 +3,7 @@
 
 ACTION=$1
 VERSION=$2
+ROLLBACK_VERSION="" # expression for previous version
 
 [[ -z $ACTION ]] && echo "Not enough arguments! e.g. './gcp.sh init v1' or './gcp.sh deploy v2'" && exit 1
 [[ $# -ne 2 ]] && echo "Please provide app version as second arg." && exit 1
@@ -21,6 +22,11 @@ case $ACTION in
         ;;
     "deploy")
         echo "Deployment started: Deploy and test new version ($VERSION) of app "
+        ./deploy/app.sh $ACTION $VERSION
+        ;;
+    "rollback")
+        [[ -z $VERSION ]] && VERSION = $ROLLBACK_VERSION
+        echo "Rollback started: Rollback app to $VERSION version"
         ./deploy/app.sh $ACTION $VERSION
         ;;
     *)

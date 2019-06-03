@@ -17,7 +17,7 @@ case $ACTION in
         echo "$APP_URL"
         ;;
     "deploy")
-        ./deploy/appcfg.sh $GAE_PROJECT_ID TEST # TEST arg generate congih for testdb
+        ./deploy/appcfg.sh $GAE_PROJECT_ID TEST # TEST arg generate config for testdb
         gcloud app deploy -q -v $VERSION --no-promote || exit 1
         echo "Use URL below for check"
         APP_URL=$(gcloud app browse --no-launch-browser -s default -v $VERSION 2>&1)
@@ -31,4 +31,12 @@ case $ACTION in
         echo "App deployed! Use URL below for check"
         APP_URL=$(gcloud app browse --no-launch-browser -s default 2>&1)
         echo "$APP_URL"
+        ;;
+    "rollback")
+        echo "Starting rollback..."
+        gcloud app deploy -q -v $VERSION --promote || exit 1
+        echo "Rollback complete"
+        ;;
 esac
+
+

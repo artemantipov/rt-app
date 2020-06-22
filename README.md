@@ -4,7 +4,7 @@ Some basic REST app with deploy to GCP(GAE)
 # System Diagram
 
 * Blue lines - current solution 
-* Grat lines - possible alternative solutions supported by app
+* Gray lines - possible alternative solutions supported by app
 
 ![alt text](https://github.com/artemantipov/rt-app/blob/master/diagram.png)
 
